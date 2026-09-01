@@ -275,6 +275,7 @@ body.dark-mode .refresh-badge{background:#1e293b;border-color:#334155;color:#60a
   gap:20px;
   width:100%;
   max-width:100%;
+  overflow-x:hidden;
 }
 
 /* KPI CARDS */
@@ -362,9 +363,19 @@ body.dark-mode .active-filter-bar{background:#1e293b;border-color:#334155;color:
   flex-shrink:0;
 }
 
-/* LAYOUT GRIDS */
-.grid-2col{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;width:100%;}
-.grid-equal{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;}
+/* LAYOUT GRIDS (NON-OVERLAPPING MOBILE STACKING) */
+.grid-2col{
+  display:grid;
+  grid-template-columns:1.25fr 1fr;
+  gap:16px;
+  width:100%;
+}
+.grid-equal{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  width:100%;
+}
 .panel{
   background:var(--card-bg);
   border:1px solid var(--border-color);
@@ -432,7 +443,7 @@ body.dark-mode .attainment-table-container{
   font-size:12px;
   text-align:center;
   table-layout:fixed;
-  min-width:400px;
+  min-width:380px;
 }
 
 .attainment-table th, 
@@ -498,7 +509,6 @@ body.dark-mode .attainment-table td{
   font-size:11px;
 }
 
-/* HOURS CELL (WHITE TEXT IN DARK/NIGHT MODE ONLY) */
 .cell-hour-tag{
   background-color:#fceec7;
   font-weight:700;
@@ -510,7 +520,6 @@ body.dark-mode .cell-hour-tag {
   color: #ffffff !important;
 }
 
-/* TARGET CELL (WHITE TEXT IN DARK/NIGHT MODE ONLY) */
 .cell-target{
   background-color:#ffffff;
   font-weight:600;
@@ -805,7 +814,7 @@ body.dark-mode .badge-live{background:#1e3a8a;color:#93c5fd;}
 }
 .loading.show{display:block;}
 
-/* RESPONSIVE & MOBILE OVERFLOW FIXES (STRICT STACKING & PADDING) */
+/* STRICT MOBILE STACKING OVERFLOW FIXES */
 @media(max-width:1400px){
   .kpi-grid{grid-template-columns:repeat(3, 1fr);}
   .grid-2col, .grid-equal{grid-template-columns:1fr !important;}
@@ -858,6 +867,7 @@ body.dark-mode .badge-live{background:#1e3a8a;color:#93c5fd;}
   .panel{
     padding:12px 10px;
     border-radius:12px;
+    overflow-x:hidden;
   }
   .panel-head{
     flex-direction:column;
@@ -2625,4 +2635,4 @@ loadAllData();
 </script>
 
 </body>
-  </html>
+</html>
