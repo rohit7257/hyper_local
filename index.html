@@ -411,7 +411,7 @@ body.dark-mode .auto-target-badge{background:#052e16;border-color:#166534;color:
 }
 .btn-screenshot:hover{background:#0369a1;}
 
-/* ATTAINMENT TABLE (ORIGINAL PALETTE RESTORED + HOURS & TARGET TEXT WHITE IN DARK MODE) */
+/* ATTAINMENT TABLE */
 .attainment-table-container{
   width:100%;
   max-width:100%;
@@ -432,13 +432,13 @@ body.dark-mode .attainment-table-container{
   font-size:12px;
   text-align:center;
   table-layout:fixed;
-  min-width:440px;
+  min-width:400px;
 }
 
 .attainment-table th, 
 .attainment-table td{
   border:1.5px solid #000000;
-  padding:6px 8px;
+  padding:6px 6px;
   font-weight:600;
   color:#000000;
   text-align:center !important;
@@ -459,37 +459,35 @@ body.dark-mode .attainment-table td{
 .row-overall-night th.cell-overall-title{
   background-color:#e8d4dc;
   color: blue;
-  font-size:13px;
+  font-size:12px;
   font-weight:800;
 }
 
 .row-overall-night td.cell-overall-target{
   background-color:#d2e5f5;
   font-weight:800;
-  font-size:13px;
-  /* color: red; */
+  font-size:12px;
   color:#000000;
 }
 
 .row-overall-night td.cell-overall-actual{
   background-color:#dfdff5;
   font-weight:800;
-  font-size:13px;
+  font-size:12px;
   color:#000000;
 }
 
 .row-overall-night td.cell-overall-attain{
   font-weight:800;
-  font-size:13px;
+  font-size:12px;
   color:#000000;
 }
 
 .row-subhead th{
-  background-color:#f6f6f4;
+  background-color:#c8dff2;
   font-weight:800;
-  font-size:12px;
-  /* color:#fff; */
-  color: #ea0b0b;
+  font-size:11px;
+  color:#000000;
 }
 
 .cell-shift-tag{
@@ -497,6 +495,7 @@ body.dark-mode .attainment-table td{
   font-weight:700;
   color:#000000;
   white-space:nowrap;
+  font-size:11px;
 }
 
 /* HOURS CELL (WHITE TEXT IN DARK/NIGHT MODE ONLY) */
@@ -505,6 +504,7 @@ body.dark-mode .attainment-table td{
   font-weight:700;
   color:#000000;
   white-space:nowrap;
+  font-size:11px;
 }
 body.dark-mode .cell-hour-tag {
   color: #ffffff !important;
@@ -559,6 +559,9 @@ body.dark-mode .cell-actual.running{
   background-color:#f8bbd0 !important;
   color:#880e4f !important;
   font-weight:800;
+}
+body.dark-mode .cell-attain-zero{
+  color:#ffffff !important;
 }
 
 /* LEADERBOARD */
@@ -802,10 +805,10 @@ body.dark-mode .badge-live{background:#1e3a8a;color:#93c5fd;}
 }
 .loading.show{display:block;}
 
-/* RESPONSIVE & MOBILE OVERFLOW FIXES */
+/* RESPONSIVE & MOBILE OVERFLOW FIXES (STRICT STACKING & PADDING) */
 @media(max-width:1400px){
   .kpi-grid{grid-template-columns:repeat(3, 1fr);}
-  .grid-2col, .grid-equal{grid-template-columns:1fr;}
+  .grid-2col, .grid-equal{grid-template-columns:1fr !important;}
 }
 
 @media(max-width:900px){
@@ -826,8 +829,8 @@ body.dark-mode .badge-live{background:#1e3a8a;color:#93c5fd;}
     margin-bottom:0;
   }
   .nav-item{
-    padding:8px 12px;
-    font-size:12px;
+    padding:8px 10px;
+    font-size:11px;
   }
   .sidebar-widget{display:none;}
   .main-wrapper{
@@ -836,47 +839,52 @@ body.dark-mode .badge-live{background:#1e3a8a;color:#93c5fd;}
     width:100%;
   }
   .top-bar{
-    padding:14px 16px;
+    padding:12px 14px;
     flex-direction:column;
     align-items:flex-start;
-    gap:12px;
+    gap:10px;
   }
   .top-bar-actions{
     width:100%;
     justify-content:flex-start;
-    gap:8px;
+    gap:6px;
   }
   .content-area{
-    padding:16px 12px;
-    gap:16px;
+    padding:12px 8px;
+    gap:12px;
   }
-  .kpi-grid{grid-template-columns:repeat(2, 1fr);}
+  .kpi-grid{grid-template-columns:repeat(2, 1fr); gap:10px;}
+  .kpi-card{padding:12px 14px;}
   .panel{
-    padding:16px 12px;
+    padding:12px 10px;
     border-radius:12px;
   }
   .panel-head{
     flex-direction:column;
     align-items:flex-start;
-    gap:10px;
+    gap:8px;
   }
   .panel-ctrl-group{
     align-items:flex-start;
     width:100%;
+  }
+  .grid-2col, .grid-equal{
+    grid-template-columns: 1fr !important;
+    gap: 12px;
   }
   .attainment-table{
     font-size:10px;
   }
   .attainment-table th, 
   .attainment-table td{
-    padding:5px 4px;
+    padding:4px 4px;
   }
   .row-overall-night th.cell-overall-title,
   .row-overall-night td.cell-overall-target,
   .row-overall-night td.cell-overall-actual,
   .row-overall-night td.cell-overall-attain{
-    font-size:11px;
-    padding:6px 4px;
+    font-size:10.5px;
+    padding:5px 3px;
   }
 }
 
@@ -884,14 +892,14 @@ body.dark-mode .badge-live{background:#1e3a8a;color:#93c5fd;}
   .top-bar-actions{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:8px;
+    gap:6px;
     width:100%;
   }
   .filter-badge, .refresh-badge, .btn-refresh, .btn-theme-toggle{
     justify-content:center;
     width:100%;
-    padding:8px 6px;
-    font-size:11px;
+    padding:6px 4px;
+    font-size:10.5px;
   }
   .top-bar-actions > div[style*="display:flex"]{
     grid-column:span 2;
@@ -913,21 +921,21 @@ body.dark-mode .badge-live{background:#1e3a8a;color:#93c5fd;}
   .panel-ctrl-group{
     flex-direction:row;
     width:100%;
-    gap:8px;
+    gap:6px;
   }
   .btn-cache-reset, .btn-export-mini{
     flex:1;
     justify-content:center;
   }
   .modal-head, .modal-body{
-    padding:14px 10px;
+    padding:12px 8px;
   }
   .attainment-table{
     font-size:9.5px;
   }
   .attainment-table th, 
   .attainment-table td{
-    padding:4px 2px;
+    padding:3px 2px;
   }
   .archive-card{
     flex-direction:column;
@@ -2617,4 +2625,4 @@ loadAllData();
 </script>
 
 </body>
-</html>
+  </html>
