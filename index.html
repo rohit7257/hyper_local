@@ -159,7 +159,7 @@ body{
 }
 .gauge-status{font-size:11px;color:#34d399;font-weight:600;margin-top:10px;}
 
-/* MAIN CONTENT WRAPPER */
+/* MAIN CONTENT */
 .main-wrapper{
   flex:1;
   display:flex;
@@ -411,41 +411,155 @@ body.dark-mode .auto-target-badge{background:#052e16;border-color:#166534;color:
 }
 .btn-screenshot:hover{background:#0369a1;}
 
-/* ATTAINMENT TABLE */
+/* ATTAINMENT TABLE (ORIGINAL PALETTE RESTORED + HOURS & TARGET TEXT WHITE IN DARK MODE) */
 .attainment-table-container{
   width:100%;
   max-width:100%;
   border-radius:6px;
   overflow-x:auto;
   -webkit-overflow-scrolling:touch;
-  border:1.5px solid #000;
-  background:#ffffff;
+  border:1.5px solid #000000;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
-body.dark-mode .attainment-table-container{border-color:#475569;}
-.attainment-table{width:100%;border-collapse:collapse;font-size:12px;text-align:center;min-width:100%;}
-.attainment-table th, .attainment-table td{
-  border:1.5px solid #000;
+body.dark-mode .attainment-table-container{
+  border-color:#475569;
+}
+
+.attainment-table{
+  width:100%;
+  border-collapse:collapse;
+  font-family:'Plus Jakarta Sans', Arial, sans-serif;
+  font-size:12px;
+  text-align:center;
+  table-layout:fixed;
+  min-width:440px;
+}
+
+.attainment-table th, 
+.attainment-table td{
+  border:1.5px solid #000000;
   padding:6px 8px;
   font-weight:600;
-  color:#000;
+  color:#000000;
   text-align:center !important;
+  vertical-align:middle;
 }
-body.dark-mode .attainment-table th, body.dark-mode .attainment-table td{border-color:#475569;}
+body.dark-mode .attainment-table th, 
+body.dark-mode .attainment-table td{
+  border-color:#475569;
+}
 
-.row-overall-night th.cell-overall-title{background-color:#e8d4dc;color:blue;font-size:13px;font-weight:800;}
-.row-overall-night td.cell-overall-target{background-color:#d2e5f5;font-weight:800;font-size:13px;}
-.row-overall-night td.cell-overall-actual{background-color:#dfdff5;font-weight:800;font-size:13px;}
-.row-overall-night td.cell-overall-attain{font-weight:800;font-size:13px;}
-.row-subhead th{background-color:#c8dff2;font-weight:800;font-size:12px;}
-.cell-shift-tag{background-color:#d4e5eb;font-weight:700;}
-.cell-hour-tag{background-color:#fceec7;font-weight:700;}
-.cell-target, .cell-actual{background-color:#ffffff;font-weight:700;}
-body.dark-mode .cell-target, body.dark-mode .cell-actual{background-color:#1e293b;color:#fff;}
-.cell-actual.running{background-color:#ecfdf5 !important;color:#065f46 !important;font-weight:800;}
-body.dark-mode .cell-actual.running{background-color:#064e3b !important;color:#6ee7b7 !important;}
-.cell-attain-high{background-color:#c8e6c9 !important;color:#000 !important;font-weight:800;}
-.cell-attain-low{background-color:#f8bbd0 !important;color:#000 !important;font-weight:800;}
-.cell-attain-zero{background-color:#f8bbd0 !important;color:#880e4f !important;}
+/* Specific Column Widths */
+.attainment-table col.col-shift{width:22%;}
+.attainment-table col.col-hour{width:20%;}
+.attainment-table col.col-target{width:20%;}
+.attainment-table col.col-actual{width:18%;}
+.attainment-table col.col-attain{width:20%;}
+
+.row-overall-night th.cell-overall-title{
+  background-color:#e8d4dc;
+  color: blue;
+  font-size:13px;
+  font-weight:800;
+}
+
+.row-overall-night td.cell-overall-target{
+  background-color:#d2e5f5;
+  font-weight:800;
+  font-size:13px;
+  /* color: red; */
+  color:#000000;
+}
+
+.row-overall-night td.cell-overall-actual{
+  background-color:#dfdff5;
+  font-weight:800;
+  font-size:13px;
+  color:#000000;
+}
+
+.row-overall-night td.cell-overall-attain{
+  font-weight:800;
+  font-size:13px;
+  color:#000000;
+}
+
+.row-subhead th{
+  background-color:#111110;
+  font-weight:800;
+  font-size:12px;
+  color:#fff;
+  /* color: #b40e0e; */
+}
+
+.cell-shift-tag{
+  background-color:#d4e5eb;
+  font-weight:700;
+  color:#000000;
+  white-space:nowrap;
+}
+
+/* HOURS CELL (WHITE TEXT IN DARK/NIGHT MODE ONLY) */
+.cell-hour-tag{
+  background-color:#fceec7;
+  font-weight:700;
+  color:#000000;
+  white-space:nowrap;
+}
+body.dark-mode .cell-hour-tag {
+  color: #ffffff !important;
+}
+
+/* TARGET CELL (WHITE TEXT IN DARK/NIGHT MODE ONLY) */
+.cell-target{
+  background-color:#ffffff;
+  font-weight:600;
+  color:#000000;
+}
+body.dark-mode .cell-target {
+  color: #ffffff !important;
+  background-color: #1e293b !important;
+}
+
+.cell-actual{
+  background-color:#ffffff;
+  font-weight:700;
+  color:#000000;
+}
+
+body.dark-mode .cell-actual{
+  background-color:#1e293b;
+  color:#ffffff;
+}
+
+.cell-actual.running{
+  background-color:#ecfdf5 !important;
+  color:#065f46 !important;
+  font-weight:800;
+}
+body.dark-mode .cell-actual.running{
+  background-color:#064e3b !important;
+  color:#6ee7b7 !important;
+  font-weight:800;
+}
+
+.cell-attain-high{
+  background-color:#c8e6c9 !important;
+  color:#000000 !important;
+  font-weight:800;
+}
+
+.cell-attain-low{
+  background-color:#f8bbd0 !important;
+  color:#000000 !important;
+  font-weight:800;
+}
+
+.cell-attain-zero{
+  background-color:#f8bbd0 !important;
+  color:#880e4f !important;
+  font-weight:800;
+}
 
 /* LEADERBOARD */
 .rank-item{display:flex;align-items:center;padding:10px 8px;border-bottom:1px solid var(--table-border);border-radius:8px;gap:10px;}
@@ -756,7 +870,6 @@ body.dark-mode .badge-live{background:#1e3a8a;color:#93c5fd;}
   .attainment-table th, 
   .attainment-table td{
     padding:5px 4px;
-    text-align:center !important;
   }
   .row-overall-night th.cell-overall-title,
   .row-overall-night td.cell-overall-target,
@@ -1024,6 +1137,13 @@ body.dark-mode .badge-live{background:#1e3a8a;color:#93c5fd;}
 
         <div class="attainment-table-container" id="attainmentScreenshotArea">
           <table class="attainment-table">
+            <colgroup>
+              <col class="col-shift">
+              <col class="col-hour">
+              <col class="col-target">
+              <col class="col-actual">
+              <col class="col-attain">
+            </colgroup>
             <thead>
               <tr class="row-overall-night">
                 <th colspan="2" class="cell-overall-title" id="overallShiftTitle">Overall Target</th>
@@ -1289,6 +1409,7 @@ function updateCountdownDisplay(){
   if(el) el.textContent = formatTimer(countdownRemaining);
 }
 
+/* 1-SECOND RELIABLE COUNTDOWN */
 function startCountdownTimer(){
   if(countdownInterval) clearInterval(countdownInterval);
   countdownRemaining = REFRESH_INTERVAL_SEC;
@@ -1872,6 +1993,7 @@ function captureAttainmentScreenshot(){
   });
 }
 
+/* 5 DAYS ARCHIVE LOCALSTORAGE */
 function saveShiftSnapshot(type, shiftName, dataList, slotsList){
   const now = new Date();
   const dateKey = now.toISOString().slice(0, 10);
